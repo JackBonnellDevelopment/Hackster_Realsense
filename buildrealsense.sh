@@ -1,0 +1,1 @@
+g++ -std=c++17 -I. -o realsense_faceTracking ./realsense.cpp -lopencv_core -lopencv_video -lopencv_videoio -lopencv_imgproc -lopencv_imgcodecs -lopencv_highgui -lglog -lrealsense2 -lvitis_ai_library-facedetect -pthread
