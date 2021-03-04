@@ -35,6 +35,7 @@ int main(int argc, char * argv[]) try
     //If there is no color stream, choose to align depth to another stream
     rs2::device dev = profile.get_device();
     rs2::depth_sensor ds = dev.query_sensors().front().as<rs2::depth_sensor>();
+    ds.set_option(RS2_OPTION_EMITTER_ENABLED, 0.f); // Disable emitter
     float scale = ds.get_depth_scale();
     float depth_clipping_distance = 1.f;
     using namespace cv;
