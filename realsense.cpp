@@ -49,16 +49,15 @@ int main(int argc, char * argv[]) try
 	data = align_to_color.process(data);
 	rs2::video_frame rgb = data.get_color_frame();
         uint8_t* rgb_data = (uint8_t*)rgb.get_data();
-
         rs2::depth_frame depth = data.get_depth_frame();
         uint16_t* depth_data = (uint16_t*)depth.get_data();
 	
         // Query frame size (width and height)
         const int w = rgb.as<rs2::video_frame>().get_width();
         const int h = rgb.as<rs2::video_frame>().get_height();
-        Mat rgb(Size(w, h), CV_8UC3, (void*)rgb, Mat::AUTO_STEP);
-        resize(rgb, rgb, Size(320,240));
         const int rgb_bpp = rgb.get_bytes_per_pixel();
+
+
 	for (int y = 0; y < h; y++)
 	    {
 		auto depth_pixel_index = y * w;
