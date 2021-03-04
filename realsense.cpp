@@ -25,7 +25,7 @@ int main(int argc, char * argv[]) try
     rs2::pipeline pipe;
     rs2::config cfg;
     cfg.enable_stream(RS2_STREAM_DEPTH, 424, 240,RS2_FORMAT_Z16,6);
-    cfg.enable_stream(RS2_STREAM_COLOR, 320, 240,RS2_FORMAT_Y16,6);
+    cfg.enable_stream(RS2_STREAM_COLOR, 320, 240,RS2_FORMAT_BGR8,6);
     // Start streaming with default recommended configuration
     rs2::pipeline_profile profile = pipe.start(cfg);
     // Each depth camera might have different units for depth pixels, so we get it here
